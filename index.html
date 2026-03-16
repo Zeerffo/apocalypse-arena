@@ -29,8 +29,7 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,0.85); /* plus opaque pour éviter problème d'affichage */
   border-bottom:1px solid #ff5a1f;
   z-index:1000;
 }
@@ -42,6 +41,7 @@ header img{
 /* HERO */
 .hero{
   height:100vh;
+  padding-top:90px; /* pour ne pas être caché par le header */
   background:
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
     url("https://cdn.pixabay.com/photo/2017/01/10/19/05/apocalypse-1973674_1280.jpg");
@@ -259,7 +259,7 @@ header img{
 <body>
 
 <header>
-  <img src="apocalypse_arena_logo-Photoroom.png">
+  <img src="apocalypse_arena_logo-Photoroom.png" alt="Logo">
 </header>
 
 <section class="hero">
@@ -331,43 +331,40 @@ header img{
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-  /* SLIDER */
-  const track = document.querySelector(".slider-track")
-  const slides = document.querySelectorAll(".slide")
-  let index = 0
+  const track = document.querySelector(".slider-track");
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
 
   function update(){
-    track.style.transform = `translateX(-${index*100}%)`
+    track.style.transform = `translateX(-${index*100}%)`;
   }
 
   document.querySelector(".next").onclick = () => {
-    index++
-    if(index >= slides.length) index = 0
-    update()
+    index++;
+    if(index >= slides.length) index = 0;
+    update();
   }
 
   document.querySelector(".prev").onclick = () => {
-    index--
-    if(index < 0) index = slides.length-1
-    update()
+    index--;
+    if(index < 0) index = slides.length-1;
+    update();
   }
 
-  /* SYSTEME TEXTE */
   function showText(type){
-    let text = document.getElementById("infoText")
+    let text = document.getElementById("infoText");
     if(type==="but"){
-      text.innerHTML = "Le but du jeu est de survivre dans l'arène, récupérer des ressources et devenir la faction dominante."
+      text.innerHTML = "Le but du jeu est de survivre dans l'arène, récupérer des ressources et devenir la faction dominante.";
     }
     if(type==="attaque"){
-      text.innerHTML = "Attaquez vos ennemis pour conquérir leurs territoires et récupérer leurs ressources."
+      text.innerHTML = "Attaquez vos ennemis pour conquérir leurs territoires et récupérer leurs ressources.";
     }
     if(type==="defense"){
-      text.innerHTML = "Construisez des défenses solides pour protéger votre base contre les attaques."
+      text.innerHTML = "Construisez des défenses solides pour protéger votre base contre les attaques.";
     }
   }
 
-  // rendre showText accessible globalement
-  window.showText = showText
+  window.showText = showText;
 
 });
 </script>
