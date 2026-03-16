@@ -10,44 +10,43 @@
 <style>
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:'Rajdhani',sans-serif;
-background:#111;
-color:white;
+  margin:0;
+  font-family:'Rajdhani',sans-serif;
+  background:#111;
+  color:white;
 }
 
-
 /* HEADER */
-
 header{
-position:fixed;
-top:0;
-width:100%;
-height:90px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(6px);
-border-bottom:1px solid #ff5a1f;
-z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid #ff5a1f;
+  z-index:1000;
 }
 
 header img{
-height:60px;
+  height:60px;
 }
 
-
-
 /* HERO */
-
 .hero{
   height:100vh;
-  background: #222; /* juste un gris foncé */
+  background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+    url("https://cdn.pixabay.com/photo/2017/01/10/19/05/apocalypse-1973674_1280.jpg");
+  background-size:cover;
+  background-position:center;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -56,496 +55,322 @@ height:60px;
 }
 
 .hero h1{
-
-font-family:'Orbitron';
-font-size:70px;
-letter-spacing:4px;
-color:#ff7b2f;
-text-shadow:0 0 20px #ff5a1f;
-
+  font-family:'Orbitron';
+  font-size:70px;
+  letter-spacing:4px;
+  color:#ff7b2f;
+  text-shadow:0 0 20px #ff5a1f;
 }
 
 .hero button{
-
-margin-top:30px;
-padding:15px 40px;
-font-size:18px;
-border:none;
-background:linear-gradient(90deg,#ff5a1f,#ffb347);
-color:white;
-cursor:pointer;
-border-radius:6px;
-transition:0.3s;
-
+  margin-top:30px;
+  padding:15px 40px;
+  font-size:18px;
+  border:none;
+  background:linear-gradient(90deg,#ff5a1f,#ffb347);
+  color:white;
+  cursor:pointer;
+  border-radius:6px;
+  transition:0.3s;
 }
 
 .hero button:hover{
-
-transform:scale(1.1);
-
+  transform:scale(1.1);
 }
 
-
-
 /* SECTIONS */
-
 .section{
-
-padding:120px 10%;
-
+  padding:120px 10%;
 }
 
 .section-title{
-
-font-family:'Orbitron';
-font-size:40px;
-text-align:center;
-margin-bottom:60px;
-color:#ff8c42;
-
+  font-family:'Orbitron';
+  font-size:40px;
+  text-align:center;
+  margin-bottom:60px;
+  color:#ff8c42;
 }
 
-
-
 /* CARDS */
-
 .cards{
-
-display:flex;
-gap:40px;
-
+  display:flex;
+  gap:40px;
 }
 
 .card{
-
-flex:1;
-background:#1a1a1a;
-padding:40px;
-border-radius:10px;
-border:1px solid rgba(255,100,40,0.3);
-box-shadow:0 0 25px rgba(255,100,40,0.3);
-transition:0.3s;
-
+  flex:1;
+  background:#1a1a1a;
+  padding:40px;
+  border-radius:10px;
+  border:1px solid rgba(255,100,40,0.3);
+  box-shadow:0 0 25px rgba(255,100,40,0.3);
+  transition:0.3s;
 }
 
 .card:hover{
-
-transform:scale(1.07);
-box-shadow:0 0 40px rgba(255,100,40,0.7);
-
+  transform:scale(1.07);
+  box-shadow:0 0 40px rgba(255,100,40,0.7);
 }
 
-
-
 /* SLIDER */
-
 .slider{
-
-max-width:900px;
-margin:auto;
-position:relative;
-overflow:hidden;
-
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
 }
 
 .slider-track{
-
-display:flex;
-transition:transform 0.5s;
-
+  display:flex;
+  transition:transform 0.5s;
 }
 
 .slide{
-
-min-width:100%;
-display:flex;
-align-items:center;
-gap:40px;
-padding:60px;
-box-sizing:border-box;
-border-radius:12px;
-
-background-size:cover;
-background-position:center;
-
-position:relative;
-overflow:hidden;
-
+  min-width:100%;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:60px;
+  box-sizing:border-box;
+  border-radius:12px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
 }
 
 .slide::before{
-
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
 }
 
 .slide-text{
-
-position:relative;
-font-size:20px;
-
+  position:relative;
+  font-size:20px;
 }
 
 .slide-circle{
-
-width:180px;
-height:180px;
-border-radius:50%;
-background:#ff5a1f;
-position:relative;
-
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:#ff5a1f;
+  position:relative;
 }
-
 
 /* images des slides */
-
 .slide1{
-background-image:url("https://cdn.pixabay.com/photo/2017/08/10/07/32/apocalypse-2619368_1280.jpg");
+  background-image:url("https://cdn.pixabay.com/photo/2017/08/10/07/32/apocalypse-2619368_1280.jpg");
 }
-
 .slide2{
-background-image:url("https://cdn.pixabay.com/photo/2016/11/23/15/14/buildings-1851246_1280.jpg");
+  background-image:url("https://cdn.pixabay.com/photo/2016/11/23/15/14/buildings-1851246_1280.jpg");
 }
-
 .slide3{
-background-image:url("https://cdn.pixabay.com/photo/2017/02/02/15/15/ruins-2032359_1280.jpg");
+  background-image:url("https://cdn.pixabay.com/photo/2017/02/02/15/15/ruins-2032359_1280.jpg");
 }
-
-
 
 /* FLÈCHES */
-
 .arrow{
-
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#ff5a1f;
-border:none;
-color:white;
-font-size:28px;
-width:50px;
-height:50px;
-cursor:pointer;
-border-radius:50%;
-
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ff5a1f;
+  border:none;
+  color:white;
+  font-size:28px;
+  width:50px;
+  height:50px;
+  cursor:pointer;
+  border-radius:50%;
 }
-
 .prev{
-left:-20px;
+  left:-20px;
 }
-
 .next{
-right:-20px;
+  right:-20px;
 }
-
-
 
 /* TELECHARGER */
-
 .download-box{
-
-max-width:700px;
-margin:auto;
-text-align:center;
-padding:60px;
-background:#1a1a1a;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,80,20,0.5);
-
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  padding:60px;
+  background:#1a1a1a;
+  border-radius:12px;
+  box-shadow:0 0 30px rgba(255,80,20,0.5);
 }
 
 .download-btn{
-
-margin-top:25px;
-padding:15px 40px;
-font-size:18px;
-border:none;
-background:linear-gradient(90deg,#ff5a1f,#ffb347);
-color:white;
-cursor:pointer;
-border-radius:6px;
-
+  margin-top:25px;
+  padding:15px 40px;
+  font-size:18px;
+  border:none;
+  background:linear-gradient(90deg,#ff5a1f,#ffb347);
+  color:white;
+  cursor:pointer;
+  border-radius:6px;
 }
 
-
-
 /* SYSTEME INFO */
-
 .info-container{
-
-max-width:900px;
-margin:auto;
-text-align:center;
-padding:60px;
-background:#1a1a1a;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,80,20,0.5);
-
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+  padding:60px;
+  background:#1a1a1a;
+  border-radius:12px;
+  box-shadow:0 0 30px rgba(255,80,20,0.5);
 }
 
 .info-text{
-
-font-size:20px;
-margin-bottom:40px;
-
+  font-size:20px;
+  margin-bottom:40px;
 }
 
 .info-buttons{
-
-display:flex;
-justify-content:center;
-gap:20px;
-
+  display:flex;
+  justify-content:center;
+  gap:20px;
 }
 
 .info-buttons button{
-
-padding:15px 30px;
-font-size:18px;
-border:none;
-cursor:pointer;
-border-radius:6px;
-background:#ff5a1f;
-color:white;
-transition:0.3s;
-
+  padding:15px 30px;
+  font-size:18px;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+  background:#ff5a1f;
+  color:white;
+  transition:0.3s;
 }
 
 .info-buttons button:hover{
-
-transform:scale(1.1);
-
+  transform:scale(1.1);
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-
-<img src="apocalypse_arena_logo-Photoroom.png">
-
+  <img src="apocalypse_arena_logo-Photoroom.png">
 </header>
 
-
-
 <section class="hero">
-
-<h1>APOCALYPSE ARENA</h1>
-
-<a href="#download">
-<button>COMMENCER L'AVENTURE</button>
-</a>
-
+  <h1>APOCALYPSE ARENA</h1>
+  <a href="#download">
+    <button>COMMENCER L'AVENTURE</button>
+  </a>
 </section>
-
-
 
 <section class="section">
-
-<h2 class="section-title">L'univers</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>Ville détruite</h3>
-
-<p>
-Les ruines d'une civilisation perdue servent maintenant
-de terrain de bataille.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Survivants</h3>
-
-<p>
-Des factions tentent de reconstruire une société
-dans les cendres du monde.
-</p>
-
-</div>
-
-</div>
-
+  <h2 class="section-title">L'univers</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Ville détruite</h3>
+      <p>Les ruines d'une civilisation perdue servent maintenant de terrain de bataille.</p>
+    </div>
+    <div class="card">
+      <h3>Survivants</h3>
+      <p>Des factions tentent de reconstruire une société dans les cendres du monde.</p>
+    </div>
+  </div>
 </section>
-
-
 
 <section class="section">
-
-<h2 class="section-title">Actualités de l'arène</h2>
-
-<div class="slider">
-
-<button class="arrow prev">&#10094;</button>
-
-<div class="slider-track">
-
-<div class="slide slide1">
-
-<div class="slide-circle"></div>
-
-<div class="slide-text">
-Une tempête radioactive approche de l'arène.
-</div>
-
-</div>
-
-
-<div class="slide slide2">
-
-<div class="slide-circle"></div>
-
-<div class="slide-text">
-Un bunker abandonné a été découvert au sud.
-</div>
-
-</div>
-
-
-<div class="slide slide3">
-
-<div class="slide-circle"></div>
-
-<div class="slide-text">
-Des créatures mutantes ont été repérées au nord.
-</div>
-
-</div>
-
-</div>
-
-<button class="arrow next">&#10095;</button>
-
-</div>
-
+  <h2 class="section-title">Actualités de l'arène</h2>
+  <div class="slider">
+    <button class="arrow prev">&#10094;</button>
+    <div class="slider-track">
+      <div class="slide slide1">
+        <div class="slide-circle"></div>
+        <div class="slide-text">Une tempête radioactive approche de l'arène.</div>
+      </div>
+      <div class="slide slide2">
+        <div class="slide-circle"></div>
+        <div class="slide-text">Un bunker abandonné a été découvert au sud.</div>
+      </div>
+      <div class="slide slide3">
+        <div class="slide-circle"></div>
+        <div class="slide-text">Des créatures mutantes ont été repérées au nord.</div>
+      </div>
+    </div>
+    <button class="arrow next">&#10095;</button>
+  </div>
 </section>
-
-
 
 <section class="section" id="download">
-
-<h2 class="section-title">Télécharger le jeu</h2>
-
-<div class="download-box">
-
-<h3>Apocalypse Arena</h3>
-
-<p>
-Téléchargez le jeu et entrez dans l'arène.
-</p>
-
-<button class="download-btn">TÉLÉCHARGER</button>
-
-</div>
-
+  <h2 class="section-title">Télécharger le jeu</h2>
+  <div class="download-box">
+    <h3>Apocalypse Arena</h3>
+    <p>Téléchargez le jeu et entrez dans l'arène.</p>
+    <button class="download-btn">TÉLÉCHARGER</button>
+  </div>
 </section>
-
-
 
 <section class="section">
-
-<h2 class="section-title">Système de jeu</h2>
-
-<div class="info-container">
-
-<div class="info-text" id="infoText">
-
-Dans Apocalypse Arena, votre objectif est de survivre
-dans un monde post-apocalyptique rempli de dangers.
-
-</div>
-
-<div class="info-buttons">
-
-<button onclick="showText('but')">But du jeu</button>
-<button onclick="showText('attaque')">Attaquer</button>
-<button onclick="showText('defense')">Défendre</button>
-
-</div>
-
-</div>
-
+  <h2 class="section-title">Système de jeu</h2>
+  <div class="info-container">
+    <div class="info-text" id="infoText">
+      Dans Apocalypse Arena, votre objectif est de survivre dans un monde post-apocalyptique rempli de dangers.
+    </div>
+    <div class="info-buttons">
+      <button onclick="showText('but')">But du jeu</button>
+      <button onclick="showText('attaque')">Attaquer</button>
+      <button onclick="showText('defense')">Défendre</button>
+    </div>
+  </div>
 </section>
 
-
-
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 
-/* SLIDER */
+  /* SLIDER */
+  const track = document.querySelector(".slider-track")
+  const slides = document.querySelectorAll(".slide")
+  let index = 0
 
-const track=document.querySelector(".slider-track")
-const slides=document.querySelectorAll(".slide")
+  function update(){
+    track.style.transform = `translateX(-${index*100}%)`
+  }
 
-let index=0
+  document.querySelector(".next").onclick = () => {
+    index++
+    if(index >= slides.length) index = 0
+    update()
+  }
 
-function update(){
+  document.querySelector(".prev").onclick = () => {
+    index--
+    if(index < 0) index = slides.length-1
+    update()
+  }
 
-track.style.transform=`translateX(-${index*100}%)`
+  /* SYSTEME TEXTE */
+  function showText(type){
+    let text = document.getElementById("infoText")
+    if(type==="but"){
+      text.innerHTML = "Le but du jeu est de survivre dans l'arène, récupérer des ressources et devenir la faction dominante."
+    }
+    if(type==="attaque"){
+      text.innerHTML = "Attaquez vos ennemis pour conquérir leurs territoires et récupérer leurs ressources."
+    }
+    if(type==="defense"){
+      text.innerHTML = "Construisez des défenses solides pour protéger votre base contre les attaques."
+    }
+  }
 
-}
+  // rendre showText accessible globalement
+  window.showText = showText
 
-document.querySelector(".next").onclick=()=>{
-
-index++
-
-if(index>=slides.length) index=0
-
-update()
-
-}
-
-document.querySelector(".prev").onclick=()=>{
-
-index--
-
-if(index<0) index=slides.length-1
-
-update()
-
-}
-
-
-
-/* SYSTEME TEXTE */
-
-function showText(type){
-
-let text=document.getElementById("infoText")
-
-if(type==="but"){
-text.innerHTML="Le but du jeu est de survivre dans l'arène, récupérer des ressources et devenir la faction dominante."
-}
-
-if(type==="attaque"){
-text.innerHTML="Attaquez vos ennemis pour conquérir leurs territoires et récupérer leurs ressources."
-}
-
-if(type==="defense"){
-text.innerHTML="Construisez des défenses solides pour protéger votre base contre les attaques."
-}
-
-}
-
+});
 </script>
 
-
 </body>
-
 </html>
