@@ -14,38 +14,41 @@ html {
 body {
   margin: 0;
   font-family: 'Rajdhani', sans-serif;
-  background: #1a1410; /* gris-brun apocalypse */
+  background: #1a1410;
   color: #ffffff;
   overflow-x: hidden;
   position: relative;
 }
 
-/* TRIANGLES DE FOND */
+/* TRIANGLES DE FOND DYNAMIQUES */
 .triangle {
   position: absolute;
   width: 0;
   height: 0;
   border-style: solid;
   opacity: 0.08;
-  animation: floatTri 12s infinite alternate;
+  animation: floatTri linear infinite;
 }
 
-/* Variété de triangles pour chaos visuel */
-.triangle1 { border-width: 0 60px 100px 60px; border-color: transparent transparent #ffffff transparent; top: 10px; left: 30px; transform: rotate(15deg);}
-.triangle2 { border-width: 0 120px 180px 120px; border-color: transparent transparent #ffffff transparent; top: 200px; right: 50px; transform: rotate(-25deg);}
-.triangle3 { border-width: 0 90px 140px 90px; border-color: transparent transparent #ffffff transparent; bottom: 120px; left: 100px; transform: rotate(45deg);}
-.triangle4 { border-width: 0 70px 110px 70px; border-color: transparent transparent #ffffff transparent; bottom: 60px; right: 150px; transform: rotate(-10deg);}
-.triangle5 { border-width: 0 50px 80px 50px; border-color: transparent transparent #ffffff transparent; top: 400px; left: 250px; transform: rotate(60deg);}
-.triangle6 { border-width: 0 100px 150px 100px; border-color: transparent transparent #ffffff transparent; top: 600px; right: 200px; transform: rotate(-50deg);}
-.triangle7 { border-width: 0 80px 130px 80px; border-color: transparent transparent #ffffff transparent; bottom: 300px; left: 50px; transform: rotate(25deg);}
-.triangle8 { border-width: 0 60px 100px 60px; border-color: transparent transparent #ffffff transparent; bottom: 200px; right: 300px; transform: rotate(75deg);}
-.triangle9 { border-width: 0 90px 140px 90px; border-color: transparent transparent #ffffff transparent; top: 150px; left: 400px; transform: rotate(-35deg);}
-.triangle10 { border-width: 0 120px 180px 120px; border-color: transparent transparent #ffffff transparent; top: 50px; right: 350px; transform: rotate(40deg);}
+/* Génération de plusieurs triangles avec tailles, positions et vitesses différentes */
+.triangle:nth-child(1) { border-width: 0 50px 90px 50px; border-color: transparent transparent #ffffff transparent; top: 20px; left: 40px; animation-duration: 12s; animation-delay: 0s; transform: rotate(10deg);}
+.triangle:nth-child(2) { border-width: 0 80px 140px 80px; border-color: transparent transparent #ffffff transparent; top: 200px; right: 70px; animation-duration: 15s; animation-delay: 2s; transform: rotate(-20deg);}
+.triangle:nth-child(3) { border-width: 0 60px 110px 60px; border-color: transparent transparent #ffffff transparent; top: 400px; left: 250px; animation-duration: 10s; animation-delay: 1s; transform: rotate(45deg);}
+.triangle:nth-child(4) { border-width: 0 90px 150px 90px; border-color: transparent transparent #ffffff transparent; bottom: 100px; left: 150px; animation-duration: 18s; animation-delay: 3s; transform: rotate(-15deg);}
+.triangle:nth-child(5) { border-width: 0 120px 200px 120px; border-color: transparent transparent #ffffff transparent; top: 500px; right: 300px; animation-duration: 20s; animation-delay: 5s; transform: rotate(60deg);}
+.triangle:nth-child(6) { border-width: 0 70px 110px 70px; border-color: transparent transparent #ffffff transparent; bottom: 250px; left: 400px; animation-duration: 16s; animation-delay: 2s; transform: rotate(-40deg);}
+.triangle:nth-child(7) { border-width: 0 100px 150px 100px; border-color: transparent transparent #ffffff transparent; top: 350px; left: 600px; animation-duration: 14s; animation-delay: 4s; transform: rotate(25deg);}
+.triangle:nth-child(8) { border-width: 0 80px 130px 80px; border-color: transparent transparent #ffffff transparent; bottom: 50px; right: 200px; animation-duration: 19s; animation-delay: 6s; transform: rotate(30deg);}
+.triangle:nth-child(9) { border-width: 0 60px 100px 60px; border-color: transparent transparent #ffffff transparent; top: 600px; left: 100px; animation-duration: 17s; animation-delay: 7s; transform: rotate(-30deg);}
+.triangle:nth-child(10) { border-width: 0 90px 140px 90px; border-color: transparent transparent #ffffff transparent; top: 150px; right: 400px; animation-duration: 13s; animation-delay: 1s; transform: rotate(15deg);}
+.triangle:nth-child(11) { border-width: 0 50px 90px 50px; border-color: transparent transparent #ffffff transparent; top: 700px; left: 500px; animation-duration: 12s; animation-delay: 0s; transform: rotate(-10deg);}
+.triangle:nth-child(12) { border-width: 0 60px 110px 60px; border-color: transparent transparent #ffffff transparent; bottom: 400px; right: 100px; animation-duration: 16s; animation-delay: 5s; transform: rotate(20deg);}
 
+/* Animation flottante indépendante */
 @keyframes floatTri {
-  0% { transform: translateY(0) rotate(0deg);}
-  50% { transform: translateY(25px) rotate(15deg);}
-  100% { transform: translateY(0) rotate(-10deg);}
+  0% { transform: translateY(0) rotate(var(--init-rotate, 0deg)); }
+  50% { transform: translateY(25px) rotate(calc(var(--init-rotate, 0deg) + 15deg)); }
+  100% { transform: translateY(0) rotate(calc(var(--init-rotate, 0deg) - 10deg)); }
 }
 
 /* HEADER */
@@ -198,16 +201,18 @@ header img { height: 110px; width: auto; }
 <body>
 
 <!-- TRIANGLES -->
-<div class="triangle triangle1"></div>
-<div class="triangle triangle2"></div>
-<div class="triangle triangle3"></div>
-<div class="triangle triangle4"></div>
-<div class="triangle triangle5"></div>
-<div class="triangle triangle6"></div>
-<div class="triangle triangle7"></div>
-<div class="triangle triangle8"></div>
-<div class="triangle triangle9"></div>
-<div class="triangle triangle10"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
+<div class="triangle"></div>
 
 <header>
   <img src="apocalypse_arena_logo-Photoroom.png" alt="Logo Apocalypse Arena">
