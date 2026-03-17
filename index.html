@@ -94,7 +94,7 @@ header nav a:hover { background:#e23333; }
 .hero img {
   position:relative;
   z-index:1;
-  width:600px; /* taille du logo au centre */
+  width:600px;
   margin-bottom:1rem;
 }
 
@@ -284,10 +284,10 @@ for(let i=0;i<50;i++){
 <header>
   <img class="logo" src="apocalypse_arena_logo-Photoroom.png" onclick="scrollToTop()">
   <nav>
-    <a href="#features">Meilleures fonctionnalités</a>
-    <a href="#news">Actualités</a>
-    <a href="#download">Télécharger</a>
-    <a href="#rules">Règles</a>
+    <a href="#features" onclick="scrollToSection('features')">Meilleures fonctionnalités</a>
+    <a href="#news" onclick="scrollToSection('news')">Actualités</a>
+    <a href="#download" onclick="scrollToSection('download')">Télécharger</a>
+    <a href="#rules" onclick="scrollToSection('rules')">Règles</a>
   </nav>
 </header>
 
@@ -295,7 +295,7 @@ for(let i=0;i<50;i++){
   <div class="overlay"></div>
   <img src="apocalypse_arena_logo-Photoroom.png" alt="logo">
   <p>Un monde post-apocalyptique où survie, stratégie et domination se mêlent. Prépare-toi à l’ultime combat.</p>
-  <button onclick="scrollToDownload()">Télécharger maintenant</button>
+  <button onclick="scrollToSection('download')">Télécharger maintenant</button>
 </section>
 
 <section id="features" class="section">
@@ -347,8 +347,8 @@ for(let i=0;i<50;i++){
 </footer>
 
 <script>
-function scrollToDownload() {
-  document.getElementById('download').scrollIntoView({behavior:'smooth'});
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function scrollToTop() {
