@@ -4,25 +4,36 @@
 <meta charset="UTF-8">
 <title>Apocalypse Arena — Official</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 /* GLOBAL */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:'Rajdhani', sans-serif; background:#0a0a0a; color:white; overflow-x:hidden; position:relative; }
 
-/* TRIANGLES ANIMÉS */
+body {
+  font-family:'Rajdhani', sans-serif;
+  background:#f5f1e8;
+  color:#1a1a1a;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* TRIANGLES ANIMÉS (CHUTE) */
 .triangle {
-  position:absolute;
+  position:fixed;
+  top:-10vh;
   width:0; height:0;
   border-left:var(--size) solid transparent;
   border-right:var(--size) solid transparent;
-  border-bottom:calc(var(--size)*1.5) solid rgba(255,255,255,0.05);
-  animation:moveRotate var(--duration) linear infinite;
+  border-top:calc(var(--size)*1.5) solid rgba(255,60,60,0.2);
+  animation:fall var(--duration) linear infinite;
+  z-index:0;
 }
-@keyframes moveRotate {
-  0% { transform: translate(var(--x-start), var(--y-start)) rotate(0deg);}
-  50% { transform: translate(var(--x-mid), var(--y-mid)) rotate(180deg);}
-  100% { transform: translate(var(--x-end), var(--y-end)) rotate(360deg);}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); opacity:0; }
+  10% { opacity:1; }
+  100% { transform: translateY(120vh); opacity:0; }
 }
 
 /* HEADER */
@@ -34,7 +45,7 @@ header {
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  background:rgba(10,10,10,0.95);
+  background:rgba(255,255,255,0.9);
 }
 
 header .logo {
@@ -86,18 +97,32 @@ header nav a:hover, header nav button:hover { background:#e23333; }
 
 /* FEATURES */
 .features { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; padding:3rem 1rem; }
-.feature-card { background:#1a1a1a; border-left:4px solid #ff3c3c; padding:2rem; width:300px; border-radius:6px; box-shadow:0 4px 12px rgba(255,60,60,0.2); transition:0.3s; }
+.feature-card {
+  background:#ffffff;
+  border-left:4px solid #ff3c3c;
+  padding:2rem;
+  width:300px;
+  border-radius:6px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
 .feature-card:hover { transform:translateY(-8px); border-color:#e23333; }
 .feature-card h3 { margin-bottom:1rem; }
 
 /* NEWS GRID */
 .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.6rem; padding:2rem; }
-.news-card { background:#171717; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.5); transition:0.3s; }
+.news-card {
+  background:#ffffff;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
 .news-card:hover { transform:scale(1.03); }
 .news-card img { width:100%; display:block; }
 .news-card-content { padding:1rem; }
 .news-card-content h4 { font-size:1.3rem; margin-bottom:.5rem; }
-.news-card-content p { font-size:.9rem; color:#ddd; }
+.news-card-content p { font-size:.9rem; color:#444; }
 
 /* DOWNLOAD */
 .download-section { padding:4rem 1rem; text-align:center; }
@@ -108,41 +133,46 @@ header nav a:hover, header nav button:hover { background:#e23333; }
 .rules-slider { max-width:1000px; margin:3rem auto; overflow:hidden; position:relative; }
 .slider-viewport { overflow:hidden; }
 .slider-track { display:flex; transition:transform 0.5s; }
-.slide { min-width:100%; height:400px; padding:3rem; background:#1a1a1a; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.5); text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.slide {
+  min-width:100%;
+  height:400px;
+  padding:3rem;
+  background:#ffffff;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.1);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
 .slide h3 { font-size:2rem; margin-bottom:1rem; }
-.slide p { font-size:1.2rem; color:#ddd; }
+.slide p { font-size:1.2rem; color:#444; }
 .arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,60,60,0.8); border:none; color:white; font-size:2rem; width:50px; height:50px; border-radius:50%; cursor:pointer; z-index:2; }
 .prev { left:-25px; }
 .next { right:-25px; }
 .arrow:hover { background:#e23333; }
 
 /* FOOTER */
-footer { text-align:center; padding:2rem; background:#111; font-size:.9rem; color:#aaa; margin-top:2rem; }
+footer { text-align:center; padding:2rem; background:#ffffff; font-size:.9rem; color:#777; margin-top:2rem; }
 </style>
 </head>
 <body>
 
 <!-- TRIANGLES -->
 <script>
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
   const tri=document.createElement('div');
   tri.className='triangle';
+
   let size=Math.random()*15+5;
-  let xStart=Math.random()*100-50;
-  let yStart=Math.random()*100-50;
-  let xMid=Math.random()*100-50;
-  let yMid=Math.random()*100-50;
-  let xEnd=Math.random()*100-50;
-  let yEnd=Math.random()*100-50;
-  let duration=40+Math.random()*40; 
+  let duration=6+Math.random()*10;
+  let posX=Math.random()*100;
+
   tri.style.setProperty('--size',size+'px');
-  tri.style.setProperty('--x-start',xStart+'vw');
-  tri.style.setProperty('--y-start',yStart+'vh');
-  tri.style.setProperty('--x-mid',xMid+'vw');
-  tri.style.setProperty('--y-mid',yMid+'vh');
-  tri.style.setProperty('--x-end',xEnd+'vw');
-  tri.style.setProperty('--y-end',yEnd+'vh');
   tri.style.setProperty('--duration',duration+'s');
+  tri.style.left = posX + "vw";
+
   document.body.appendChild(tri);
 }
 </script>
@@ -160,14 +190,14 @@ for(let i=0;i<40;i++){
 <section class="hero">
   <div class="overlay"></div>
   <h1>ENTRE DANS L'ARÈNE</h1>
-  <p>Un monde post‑apocalyptique où survie, stratégie et domination se mêlent. Prépare‑toi à l’ultime combat.</p>
+  <p>Un monde post-apocalyptique où survie, stratégie et domination se mêlent. Prépare-toi à l’ultime combat.</p>
   <button onclick="scrollToDownload()">Télécharger maintenant</button>
 </section>
 
 <section id="features" class="section">
   <h2 class="section-title">Meilleures fonctionnalités</h2>
   <div class="features">
-    <div class="feature-card"><h3>Combat en équipe</h3><p>Coordonne avec ta faction et bats‑toi pour le territoire.</p></div>
+    <div class="feature-card"><h3>Combat en équipe</h3><p>Coordonne avec ta faction et bats-toi pour le territoire.</p></div>
     <div class="feature-card"><h3>Cartes dynamiques</h3><p>Environnements destructibles et zones changeantes.</p></div>
     <div class="feature-card"><h3>Modes variés</h3><p>Solo, équipe, ou survie – choisis ton style.</p></div>
   </div>
@@ -213,10 +243,8 @@ for(let i=0;i<40;i++){
 </footer>
 
 <script>
-// Scroll vers download
 function scrollToDownload() { document.getElementById('download').scrollIntoView({behavior:'smooth'}); }
 
-// Slider Règles
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 function updateSlider() { document.querySelector('.slider-track').style.transform = `translateX(-${slideIndex*100}%)`; }
