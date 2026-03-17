@@ -40,19 +40,24 @@ body {
 header {
   position: fixed;
   top:0; left:0; right:0;
-  padding:1rem 2rem;
+  padding:0.5rem 1.5rem; /* réduit la hauteur */
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  background:rgba(15,15,15,0.95);
-  backdrop-filter: blur(8px);
+  background:rgba(30,30,30,0.85); /* moins foncé */
+  backdrop-filter: blur(6px);
 }
 
 header .logo {
-  width:200px;
+  width:140px;
   height:auto;
-  display:block;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+header .logo:hover {
+  transform:scale(1.05);
 }
 
 header nav {
@@ -179,7 +184,7 @@ for(let i=0;i<50;i++){
 </script>
 
 <header>
-  <img class="logo" src="apocalypse_arena_logo-Photoroom.png" alt="logo">
+  <img class="logo" src="apocalypse_arena_logo-Photoroom.png" alt="logo" onclick="scrollToTop()">
   <nav>
     <a href="#features">Meilleures fonctionnalités</a>
     <a href="#news">Actualités</a>
@@ -251,6 +256,7 @@ const slides = document.querySelectorAll('.slide');
 function updateSlider() { document.querySelector('.slider-track').style.transform = `translateX(-${slideIndex*100}%)`; }
 function nextSlide() { slideIndex = (slideIndex + 1) % slides.length; updateSlider(); }
 function prevSlide() { slideIndex = (slideIndex - 1 + slides.length) % slides.length; updateSlider(); }
+function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" });}
 </script>
 
 </body>
