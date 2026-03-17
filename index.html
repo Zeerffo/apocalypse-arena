@@ -45,13 +45,14 @@ header {
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  background:rgba(255,255,255,0.9);
+  background:rgba(15,15,15,0.95);
+  backdrop-filter: blur(8px);
 }
 
 header .logo {
-  width:750px;
+  width:200px;
   height:auto;
-  background:url('apocalypse_arena_logo-Photoroom.png') no-repeat left/contain;
+  display:block;
 }
 
 header nav {
@@ -178,7 +179,7 @@ for(let i=0;i<50;i++){
 </script>
 
 <header>
-  <div class="logo"></div>
+  <img class="logo" src="apocalypse_arena_logo-Photoroom.png" alt="logo">
   <nav>
     <a href="#features">Meilleures fonctionnalités</a>
     <a href="#news">Actualités</a>
